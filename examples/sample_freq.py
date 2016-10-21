@@ -70,7 +70,7 @@ while True:
                 logging.info('RE-CONNECTING: %s' % event)
                 break
     except TwitterRequestError as e:
-        if e.status_code < 500:
+        if e.response.status_code < 500:
             print('REQUEST FAILED: %s' % e)
             break
     except TwitterConnectionError:

@@ -91,7 +91,7 @@ class TwitterRestPager(object):
                     self.params['max_id'] = str(id - 1)
 
             except TwitterRequestError as e:
-                if e.status_code < 500:
+                if e.response.status_code < 500:
                     raise
                 continue
             except TwitterConnectionError:

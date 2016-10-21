@@ -31,7 +31,7 @@ Sometimes Twitter will inform you to close the connection by sending you a "disc
                         # temporary interruption, re-try request
                         break
         except TwitterRequestError as e:
-            if e.status_code < 500:
+            if e.response.status_code < 500:
                 # something needs to be fixed before re-connecting
                 raise
             else:
